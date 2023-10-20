@@ -1,7 +1,7 @@
 //
 //  DatePickerHelper.swift
 //  RDatePickerHelper
-// 0.1.0
+// 0.1.1
 //  Created by vrinsoft on 20/10/23.
 //
 
@@ -71,13 +71,13 @@ public class DatePickerHelper {
     
     // toolbar Done button press
     @objc func doneClick(btn: UIBarButtonItem) {
-        //doneClicked?(self.datePicker.date)
+        doneClicked?(self.datePicker.date)
         self.textFiled?.resignFirstResponder()
     }
     
     // toolbar Cancel button press
     @objc func cancelClick(btn: UIBarButtonItem) {
-        //cancelClicked?()
+        cancelClicked?()
         self.textFiled?.resignFirstResponder()
     }
 }

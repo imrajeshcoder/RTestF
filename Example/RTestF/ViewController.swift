@@ -18,6 +18,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        objDP.doneClicked = { [self] selectedDate in
+            txtDatePicker.text = selectedDate.asString(dateFormat: DateFormatt.AppDateFormate.rawValue)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,4 +32,17 @@ class ViewController: UIViewController {
         objDP.showDatePicker(txt: txtDatePicker)
     }
     
+}
+
+enum DateFormatt: String{
+    case AppDateFormate = "MMM dd, YYYY"
+}
+
+extension Date{
+    func asString(dateFormat: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = dateFormat
+
+        return dateFormatter .string(from: self)
+    }
 }
